@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="h-full bg-white">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="{% static 'script.js' %}"></script>
+</head>
+<body  class="h-full">
+    {% include 'navbar.html' %}
+    <div class="container mx-auto px-4">
+        {% if messages %}
+            {% for message in messages %}
+                <div id='notification'class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
+                    <strong class="font-bold">Message:</strong>
+                    <span class="block sm:inline">{{ message }}</span>
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% block content%}
+        {% endblock%}
+    </div>
+</body>
+</html>
