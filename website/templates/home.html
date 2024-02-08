@@ -3,8 +3,45 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-
-<h1>Hello World!</h1>
+    <div class="flex justify-center px-6 py-12 lg:px-8">
+        <div class="inline-block align-middle">
+            <div class="shadow overflow-hidden rounded">
+                <table class="table-fixed">
+                    <thead class="bg-gray-100 dark:bg-gray-800">
+                        <tr>
+                            <th class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-300">Name</th>
+                            <th class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-300">Email</th>
+                            <th class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-300">Phone</th>
+                            <th class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-300">Address</th>
+                            <th class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-300">City</th>
+                            <th class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-300">State</th>
+                            <th class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-300">Zipcode</th>
+                            <th class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-300">Created At</th>
+                            <th class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-300">ID</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-500 dark:divide-gray-700">
+                            {% if records %}
+                                {% for record in records %}
+                                    <tr class="odd:bg-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ record.first_name }} 
+                                            {{ record.last_name }}</td>
+                                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ record.email }}</td>
+                                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ record.phone }}</td>
+                                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ record.address }}</td>
+                                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ record.city }}</td>
+                                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ record.state }}</td>
+                                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ record.zip_code }}</td>
+                                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ record.created_at }}</td>
+                                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><a href="{% url 'record' record.id %}">{{ record.id }}</a></td>
+                                    </tr>
+                                {% endfor %}
+                            {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
 {% else %}
 <div>
