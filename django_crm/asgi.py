@@ -1,5 +1,5 @@
 """
-ASGI config for lenifeyo_crm project.
+ASGI config for django_crm project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "lenifeyo_crm.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_crm.settings")
 
 application = get_asgi_application()

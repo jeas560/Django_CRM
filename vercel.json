@@ -1,27 +1,27 @@
 {
-    "version": 2,
-    "builds": [
+  "version": 2,
+  "builds": [
     {
-        "src": "lenifeyo_crm/wsgi.py",
-        "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+      "src": "django_crm/wsgi.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     },
     {
-        "src": "build_files.sh",
-        "use": "@vercel/static-build",
-        "config": {
+      "src": "build_files.sh",
+      "use": "@vercel/static-build",
+      "config": {
         "distDir": "staticfiles_build"
-        }
+      }
     }
-    ],
-    "routes": [
+  ],
+  "routes": [
     {
-        "src": "/static/(.*)",
-        "dest": "/static/$1"
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
     },
     {
-        "src": "/(.*)",
-        "dest": "lenifeyo_crm/wsgi.py"
+      "src": "/(.*)",
+      "dest": "django_crm/wsgi.py"
     }
-    ]
+  ]
 }

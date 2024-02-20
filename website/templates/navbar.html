@@ -1,24 +1,43 @@
 <nav class="bg-gray-800">
-    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
-        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div class="flex flex-shrink-0 items-center">
-                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="LeniFeyo CRM">
-            </div>
+      <div
+        class="flex flex-1 items-left justify-center sm:items-stretch sm:justify-start"
+      >
+        <div class="flex flex-shrink-0 items-center">
+          <a href="{% url 'home' %}" class="text-gray-300 py-2 h-8 w-auto"
+            >Django CRM</a
+          >
+          {% if user.is_authenticated %}
+          <a
+            href="{% url 'add_record' %}"
+            class="text-gray-300 py-2 px-5 h-8 w-auto hover:text-white text-sm font-medium"
+            >Add Record</a
+          >
+          {% endif %}
         </div>
-        {% if user.is_authenticated %}
-            <div class="absolute right-0 flex hidden sm:ml-6 sm:block">
-                <div class="flex space-x-4">
-                <a href="{% url 'logout' %}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Logout</a>
-                </div>
-            </div>
-        {% else %}            
-            <div class="absolute right-0 flex hidden sm:ml-6 sm:block">
-                <div class="flex space-x-4">
-                <a href="{% url 'home' %}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Login</a>
-                </div>
-            </div>
-        {% endif %}
+      </div>
+      {% if user.is_authenticated %}
+      <div class="absolute right-0 flex hidden sm:ml-6 sm:block">
+        <div class="flex space-x-4">
+          <a
+            href="{% url 'logout' %}"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+            >Logout</a
+          >
+        </div>
+      </div>
+      {% else %}
+      <div class="absolute right-0 flex hidden sm:ml-6 sm:block">
+        <div class="flex space-x-4">
+          <a
+            href="{% url 'home' %}"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+            >Login</a
+          >
+        </div>
+      </div>
+      {% endif %}
     </div>
-    </div>
+  </div>
 </nav>

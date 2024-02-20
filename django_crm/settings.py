@@ -43,7 +43,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "lenifeyo_crm.urls"
+ROOT_URLCONF = "django_crm.urls"
 
 TEMPLATES = [
     {
@@ -61,7 +61,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "lenifeyo_crm.wsgi.application"
+WSGI_APPLICATION = "django_crm.wsgi.application"
 
 
 # Database
